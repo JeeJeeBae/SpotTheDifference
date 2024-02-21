@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spot The Difference Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="logo">
+      Spot The Difference by clicking on the
+      <b>right canvas.</b>
+    </div>
+
+    <div class="button">
+      <button id="myButton">Start</button>
+    </div>
+
+    <div class="findandtimer">
+      <div id="timer">Time left: 30 seconds</div>
+      <div id="result">Spot 3 differences</div>
+    </div>
+
+    <div class="boards">
+      <div class="left-board">
+        <img
+          src="horse-left.png"
+          alt="scooter image on the left"
+          id="horse-left"
+        />
+        <!-- <div><img src="boy-left.png" /></div>
+        <div><img src="horse-left.png" /></div>
+        <div><img src="girl-left.png" /></div>
+        <div><img src="climber-left.png" /></div>
+        <div><img src="camp-left.png" /></div> -->
+      </div>
+      <div class="right-board">
+        <!-- <div id="clickhere">
+          <b>Click on this board to submit your answer</b>
+        </div> -->
+        <div class="grid-right">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+        </div>
+        <img
+          src="horse-right.png"
+          alt="scooter image on the right"
+          id="horse-right"
+        />
+        <!-- <div><img src="boy-right.png" /></div>
+        <div><img src="horse-right.png" /></div>
+        <div><img src="girl-right.png" /></div>
+        <div><img src="climber-right.png" /></div>
+        <div><img src="camp-right.png" /></div> -->
+      </div>
+    </div>
+
+    <div class="score">
+      <div id="circles"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
