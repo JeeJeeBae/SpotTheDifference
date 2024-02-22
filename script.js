@@ -1,94 +1,103 @@
 function horseSet() {
-  const leftImage = document.getElementById("horse-left");
-  const rightImage = document.getElementById("horse-right");
+  const leftBoard = document.querySelector(".left-board");
+  const rightBoard = document.querySelector(".right-board");
+
+  // Create image elements and set their src attributes
+  const leftImage = document.createElement("img");
+  leftImage.src = "horse-left.png";
+
+  const rightImage = document.createElement("img");
+  rightImage.src = "horse-right.png";
+
+  // Append images to respective boards
+  leftBoard.appendChild(leftImage);
+  rightBoard.appendChild(rightImage);
+}
+
+function boxClick(event) {
+  const resultDisplay = document.getElementById("result");
+  const clickedBox = event.target.closest(".box");
+
+  // Get the ID of the clicked box
+  const boxId = clickedBox.querySelector("div").id;
+
+  // Check if the clicked box is already clicked
+  if (clickedBox.classList.contains("clicked")) {
+    return; // Do nothing if the box is already clicked
+  }
+
+  // Add 'clicked' class to the clicked box
+  clickedBox.classList.add("clicked");
+
+  // Check if the clicked box ID is correct or incorrect
+  if (correctBox(boxId)) {
+    resultDisplay.textContent = "Correct!";
+    clickedBox.classList.add("correct");
+
+    if (allBoxesFound()) {
+      clearInterval(countdown);
+    }
+  } else {
+    resultDisplay.textContent = "Nope, not there!";
+  }
+
+  if (allBoxesFound()) {
+    resultDisplay.textContent = "Well done! You found all three.";
+  }
+}
+
+function allBoxesFound() {
+  // Get all correct box elements
+  const correctBoxes = document.querySelectorAll(".correct");
+  // Define the number of correct boxes to be found
+  const numCorrectBoxes = 3;
+  // Check if the number of found correct boxes matches the total number of correct boxes
+  return correctBoxes.length === numCorrectBoxes;
+}
+
+function correctBox(boxId) {
+  // Define the IDs of correct boxes
+  const correctBoxIds = ["box33", "box40", "box76"]; // Add more correct box IDs as needed
+
+  // check if the clicked box ID is in the list of correct box IDs
+  return correctBoxIds.includes(boxId);
+}
+
+// Get all box elements
+const boxes = document.querySelectorAll(".box");
+
+// Add click event listener to each box
+boxes.forEach(function (box) {
+  box.addEventListener("click", boxClick);
+});
+
+let countdown; // Declaration of the countdown variable
+
+// Function to start the timer
+function timer() {
   const resultDisplay = document.getElementById("result");
   const timerDisplay = document.getElementById("timer");
   const startButton = document.getElementById("myButton");
 
-  //   // Show the second image
-  //   rightImage.style.display = "block";
-
-  // Start the 30-second timer
   let secondsLeft = 30;
 
-  const countdown = setInterval(function () {
+  countdown = setInterval(function () {
     secondsLeft--;
     timerDisplay.textContent = `Time left: ${secondsLeft} seconds`;
 
-    if (secondsLeft < 0) {
+    if (secondsLeft === 0) {
       clearInterval(countdown);
-      timerDisplay.textContent = "Time's up!";
-      startButton.disabled = false;
-      resultDisplay.textContent = "Game over!";
+      resultDisplay.textContent = "Time's up!";
+      startButton.disabled = false; // Re-enable button after the countdown ends
     }
   }, 1000);
 
-  let differencesFound = 0; // Track the number of differences found
-
-  // Compare images when clicked
-  leftImage.addEventListener("click", function () {
-    differencesFound++;
-    if (differencesFound === 3) {
-      resultDisplay.textContent = "You found all differences!";
-      clearInterval(countdown);
-      resultDisplay.textContent = "Game over!";
-      startButton.disabled = false;
-    } else {
-      leftImage.classList.add("incorrect");
-      resultDisplay.textContent = "Incorrect! Try again.";
-    }
-  });
-
-  rightImage.addEventListener("click", function () {
-    differencesFound++;
-    if (differencesFound === 3) {
-      resultDisplay.textContent = "You found all differences!";
-      clearInterval(countdown);
-      resultDisplay.textContent = "Game over!";
-      startButton.disabled = false;
-    } else {
-      rightImage.classList.add("incorrect");
-      resultDisplay.textContent = "Incorrect! Try again.";
-    }
-    startButton.disabled = false;
-  });
-
-  // Disable the start button once the game starts
-  startButton.disabled = true;
+  horseSet(); // Call function to display images
+  boxClick();
 }
 
-// Add event listener to start button
-document.getElementById("myButton").addEventListener("click", horseSet);
+document.getElementById("myButton").addEventListener("click", timer);
 
-// function startGame() {
-//     const girlLeft = document.getElementById('image1');
-//     const girlRight = document.getElementById('image2');
-//   const timerDisplay = document.getElementById("timer");
-//   const gameStatusDisplay = document.getElementById("status");
-//   const startButton = document.getElementById("myButton");
-
-//   let timeLeft = 30; // Set the initial time (in seconds)
-
-//   // Update the timer every second
-//   const intervalId = setInterval(function () {
-//     timeLeft--;
-//     timerDisplay.textContent = timeLeft;
-
-//     if (timeLeft === 0) {
-//       clearInterval(intervalId); // Stop the timer when it reaches zero
-//     }
-//   }, 1000);
-
-//   // Disable the start button once the game starts
-//   startButton.disabled = true;
-// }
-
-// // Add event listener to start button
-// document.getElementById("myButton").addEventListener("click", startGame);
-// document.getElementById("myButton").addEventListener("click", function () {
-//   this.textContent = "Next";
-// });
-
-// function numDiff() {}
-
-// function timer() {}
+document.getElementById("myButton").addEventListener("click", function () {
+  this.textContent = "Next";
+});
