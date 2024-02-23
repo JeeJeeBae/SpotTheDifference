@@ -1,36 +1,79 @@
 .logo {
   text-align: center;
-  margin: 30px 0 10px 0px;
+  margin-top: 30px;
   font-size: 26px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #222222;
 }
 
 .findandtimer {
-  font-size: 32px;
-  text-align: center;
+  display: flex;
   justify-content: center;
-  margin: 20px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  position: relative;
+  padding-bottom: 30px;
 }
 
-/* #timer {
-  border-width: 1px;
-  border-color: aqua;
-  margin-bottom: 5px;
-} */
+#result {
+  font-size: 26px;
+  text-align: center;
+  margin: 16px 0 0 600px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #222222;
+  position: absolute;
+}
+
+.ticker-box {
+  margin-top: 20px;
+}
+
+#ticker1 {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  background-color: #d9d9d9;
+  justify-content: center;
+}
+
+#ticker2 {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  background-color: #d9d9d9;
+}
+
+#ticker3 {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  background-color: #d9d9d9;
+}
+
+#timer {
+  font-size: 26px;
+  text-align: center;
+  margin: 16px 600px 0 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #222222;
+  position: absolute;
+}
 
 .button {
   display: flex;
   justify-content: center;
+  margin: 40px 20px 20px 20px;
 }
 
 #myButton {
+  position: relative;
   width: 300px;
   height: 40px;
-  margin: 10px 0 0 30px;
+  margin: 0px;
   color: white;
   background-color: #00d588;
   font-size: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
 }
 
 .boards {
@@ -43,9 +86,8 @@
   height: 500px;
   width: 500px;
   display: inline-block;
-  border: 3px solid #00d588;
-  background-color: #00d588;
-  margin: 20px 600px 20px 20px;
+  background-color: #d9d9d9;
+  margin: 10px 600px 20px 20px;
   aspect-ratio: 1 / 1;
   position: absolute;
 }
@@ -55,26 +97,26 @@ img {
   height: 500px;
   object-fit: fill;
   height: auto;
-  cursor: pointer;
 }
 
 .right-board {
   height: 500px;
   width: 500px;
   display: inline-block;
-  border: 3px solid #00d588;
-  background-color: #00d588;
-  margin: 20px 20px 20px 600px;
+  border: 3px solid #222222;
+  background-color: #d9d9d9;
+  margin: 10px 20px 20px 600px;
   aspect-ratio: 1 / 1;
   z-index: 1;
   position: absolute;
+  cursor: pointer;
 }
 
 .right-grid {
   height: 500px;
   width: 500px;
   display: inline-block;
-  border: 3px solid black;
+  border: 0px solid #222222;
   margin: 20px 20px 20px 600px;
   aspect-ratio: 1 / 1;
   z-index: 2;
@@ -84,7 +126,7 @@ img {
 }
 
 .box {
-  border: 2px solid black;
+  border: 0px solid #222222;
   cursor: pointer;
 }
 
@@ -92,22 +134,3 @@ img {
   border-color: white;
   border-width: 5px;
 }
-
-.incorrect {
-  border-color: red;
-}
-
-/* #clickhere {
-    text-align: center;
-    justify-content: center;
-    font-size: 16px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    margin: 5px;
-    position: absolute;
-    color: black;
-    height: 30px;
-  }
-  
-  .score {
-    text-align: center;
-  } */

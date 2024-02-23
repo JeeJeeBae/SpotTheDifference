@@ -34,8 +34,14 @@ function boxClick(event) {
     resultDisplay.textContent = "Correct!";
     clickedBox.classList.add("correct");
 
+    const correctBoxes = document.querySelectorAll(".correct");
+    const numCorrectBoxes = correctBoxes.length;
+    const tickerId = `ticker${numCorrectBoxes}`;
+    const correctTicker = document.getElementById(tickerId);
+    correctTicker.style.backgroundColor = "#00d588";
+
     if (allBoxesFound()) {
-      clearInterval(countdown);
+      clearInterval(countdown); //stop the timer
     }
   } else {
     resultDisplay.textContent = "Nope, not there!";
@@ -52,7 +58,18 @@ function allBoxesFound() {
   // Define the number of correct boxes to be found
   const numCorrectBoxes = 3;
   // Check if the number of found correct boxes matches the total number of correct boxes
-  return correctBoxes.length === numCorrectBoxes;
+  //   return correctBoxes.length === numCorrectBoxes;
+
+  const foundAllBoxes = correctBoxes.length === numCorrectBoxes;
+
+  if (foundAllBoxes) {
+    const startButton = document.getElementById("myButton");
+    startButton.disabled = false; // Re-enable the button
+    startButton.style.backgroundColor = ""; // Reset button color
+    startButton.textContent = "Next"; // Change button text
+  }
+
+  return foundAllBoxes;
 }
 
 function correctBox(boxId) {
@@ -73,22 +90,30 @@ boxes.forEach(function (box) {
 
 let countdown; // Declaration of the countdown variable
 
-// Function to start the timer
 function timer() {
   const resultDisplay = document.getElementById("result");
   const timerDisplay = document.getElementById("timer");
-  const startButton = document.getElementById("myButton");
+  const myButton = document.getElementById("myButton");
 
   let secondsLeft = 30;
 
+  //disable the button and change its color to grey:
+  myButton.disabled = true;
+  myButton.style.backgroundColor = "#D9D9D9";
+
   countdown = setInterval(function () {
     secondsLeft--;
-    timerDisplay.textContent = `Time left: ${secondsLeft} seconds`;
+    timerDisplay.textContent = `TIME LEFT: ${secondsLeft} SECONDS`;
+
+    if (secondsLeft === 10) {
+      timerDisplay.style.color = "red";
+    }
 
     if (secondsLeft === 0) {
       clearInterval(countdown);
-      resultDisplay.textContent = "Time's up!";
-      startButton.disabled = false; // Re-enable button after the countdown ends
+      timerDisplay.textContent = "Time's up!";
+      myButton.disabled = false; // Re-enable button after the countdown ends
+      myButton.style.backgroundColor = ""; //reset button color
     }
   }, 1000);
 
