@@ -1,17 +1,90 @@
-function horseSet() {
+let currentImageSetIndex = 0;
+
+const imageSets = [
+  {
+    leftImageSrc: "climber-left.png",
+    rightImageSrc: "climber-right.png",
+    correctBoxIds: ["box4", "box38", "box39", "box48", "box49", "box77"],
+  },
+  {
+    leftImageSrc: "horse-left.png",
+    rightImageSrc: "horse-right.png",
+    correctBoxIds: ["box33", "box40", "box76"],
+  },
+  {
+    leftImageSrc: "pirate-left.png",
+    rightImageSrc: "pirate-right.png",
+    correctBoxIds: ["box94", "box67", "box44"],
+  },
+  {
+    leftImageSrc: "boy-left.png",
+    rightImageSrc: "boy-right.png",
+    correctBoxIds: ["box36", "box42", "box43", "box88", "box89"],
+  },
+  {
+    leftImageSrc: "camp-left.png",
+    rightImageSrc: "camp-right.png",
+    correctBoxIds: ["box37", "box47", "box83", "box80", "box90"],
+  },
+  {
+    leftImageSrc: "girl-left.png",
+    rightImageSrc: "girl-right.png",
+    correctBoxIds: ["box23", "box39", "box86"],
+  },
+  {
+    leftImageSrc: "scooter-left.png",
+    rightImageSrc: "scooter-right.png",
+    correctBoxIds: ["box24", "box68", "box76", "box86"],
+  },
+];
+
+function mainImageSet(imageSet) {
   const leftBoard = document.querySelector(".left-board");
   const rightBoard = document.querySelector(".right-board");
 
+  //clear existing images:
+  leftBoard.innerHTML = "";
+  rightBoard.innerHTML = "";
+
   // Create image elements and set their src attributes
   const leftImage = document.createElement("img");
-  leftImage.src = "horse-left.png";
+  leftImage.src = imageSet.leftImageSrc;
 
   const rightImage = document.createElement("img");
-  rightImage.src = "horse-right.png";
+  rightImage.src = imageSet.rightImageSrc;
 
   // Append images to respective boards
   leftBoard.appendChild(leftImage);
   rightBoard.appendChild(rightImage);
+}
+
+function resetGame() {
+  // Load images for the current image set
+  const currentImageSet = imageSets[currentImageSetIndex];
+  mainImageSet(currentImageSet);
+
+  // REMOVE ALL CLICKED AND CORRECT CLASSES FROM BOXES:
+  const boxes = document.querySelectorAll(".box");
+  boxes.forEach((box) => {
+    box.classList.remove("clicked", "correct");
+  });
+
+  //reset tickers to their default color:
+  const tickers = document.querySelectorAll(".ticker-box");
+  tickers.forEach((ticker) => {
+    ticker.style.backgroundColor = "#d9d9d9";
+  });
+
+  //reset result display
+  const resultDisplay = document.getElementById("result");
+  resultDisplay.textContent = "Find 3 spots";
+
+  // reset timer display and button
+  const timerDisplay = document.getElementById("timer");
+  const myButton = document.getElementById("myButton");
+  timerDisplay.textContent = "";
+  timerDisplay.style.color = "";
+  myButton.textContent = "Start";
 }
 
 function boxClick(event) {
@@ -74,7 +147,8 @@ function allBoxesFound() {
 
 function correctBox(boxId) {
   // Define the IDs of correct boxes
-  const correctBoxIds = ["box33", "box40", "box76"]; // Add more correct box IDs as needed
+  const currentImageSet = imageSets[currentImageSetIndex];
+  const correctBoxIds = currentImageSet.correctBoxIds;
 
   // check if the clicked box ID is in the list of correct box IDs
   return correctBoxIds.includes(boxId);
@@ -91,6 +165,9 @@ boxes.forEach(function (box) {
 let countdown; // Declaration of the countdown variable
 
 function timer() {
+  //reset the game before starting:
+  resetGame();
+
   const resultDisplay = document.getElementById("result");
   const timerDisplay = document.getElementById("timer");
   const myButton = document.getElementById("myButton");
@@ -117,12 +194,23 @@ function timer() {
     }
   }, 1000);
 
-  horseSet(); // Call function to display images
-  boxClick();
+  // Increment currentImageSetIndex to move to the next set of images
+  currentImageSetIndex++;
+  if (currentImageSetIndex >= imageSets.length) {
+    currentImageSetIndex = 0; // Reset index if it exceeds the array length
+  }
+  // Call function to display images for the new image set
+  const currentImageSet = imageSets[currentImageSetIndex];
+  mainImageSet(currentImageSet); // Call function to display images
 }
 
 document.getElementById("myButton").addEventListener("click", timer);
 
 document.getElementById("myButton").addEventListener("click", function () {
   this.textContent = "Next";
+  //   this.removeEventListener("click", timer); //remove previous event listener
+  //   this.addEventListener("click", function () {
+  //     resetGame();
+  //     timer(); //start a new game when "next" button is clicked
+  //   });
 });
