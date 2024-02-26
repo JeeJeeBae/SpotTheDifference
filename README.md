@@ -2,9 +2,7 @@
 
 Test your observation skills and attention to detail with 'Spot The Difference'! Players have a 30-second time limit to find 3 differences for each round. 
 
-**You can find the game [HERE](https://jeejeebae.github.io/SpotTheDifference/).**
-
-# Screenshots & Getting Started: 
+# Screenshots: 
 
 ![Screenshot of the empty state game before the start button is pressed](/readmd_images/spot1.png)
 ![Screenshot when the game starts](/readmd_images/spot2.png)
@@ -17,6 +15,10 @@ Test your observation skills and attention to detail with 'Spot The Difference'!
 
 JavaScript, HTM & CSS were used to create this game.
 
+# Getting Started:
+
+**Play the game [HERE](https://jeejeebae.github.io/SpotTheDifference/).**
+
 # Next Steps: 
 
 - Create a button/section to show correct spots if the player fails to find all answers before the timer ends.
@@ -27,3 +29,10 @@ JavaScript, HTM & CSS were used to create this game.
 
 
 # References: 
+
+- https://www.w3schools.com/css/css3_buttons.asp
+- https://stackoverflow.com/questions/2941189/how-to-overlay-one-div-over-another-div#:~:text=By%20using%20a%20div%20with,only%20works%20with%20positioned%20elements.
+- https://css-tricks.com/almanac/properties/a/aspect-ratio/
+- https://medium.com/@thewebdevg/creating-a-gameboard-with-css-grid-47da8ac25078
+- https://github.com/nbkhope/misplacedpin/blob/master/misplacedpin.js
+- https://stackoverflow.com/questions/2941189/how-to-overlay-one-div-over-another-div
