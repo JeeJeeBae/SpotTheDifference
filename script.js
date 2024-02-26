@@ -208,9 +208,4 @@ document.getElementById("myButton").addEventListener("click", timer);
 
 document.getElementById("myButton").addEventListener("click", function () {
   this.textContent = "Next";
-  //   this.removeEventListener("click", timer); //remove previous event listener
-  //   this.addEventListener("click", function () {
-  //     resetGame();
-  //     timer(); //start a new game when "next" button is clicked
-  //   });
 });
