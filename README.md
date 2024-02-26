@@ -4,10 +4,19 @@ Test your observation skills and attention to detail with 'Spot The Difference'!
 
 # Screenshots: 
 
+- Before starting the game:
 ![Screenshot of the empty state game before the start button is pressed](/readmd_images/spot1.png)
+
+- When the player clicks on the Start button:
 ![Screenshot when the game starts](/readmd_images/spot2.png)
+
+- Display when spots are found:
 ![Screenshot of when a spot is found](/readmd_images/spot3.png)
+
+- When the timer ends and the round is over:
 ![Screenshot when the timer ends](/readmd_images/spot4.png)
+
+- When the player finds all spots:
 ![Screenshot when the player finds all spots](/readmd_images/spot5.png)
 
 
@@ -22,6 +31,7 @@ JavaScript, HTM & CSS were used to create this game.
 # Next Steps: 
 
 - Create a button/section to show correct spots if the player fails to find all answers before the timer ends.
+- Refine the click/selection area so that multiple "boxes" could be selected for one spot and change the correct answer display to a circle.
 - Create different levels by adding/reducing time and adding more difficult images. 
 - Make it a two-player game.
 - Add sound effects to make the game more interactive.
