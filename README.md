@@ -1,21 +1,21 @@
-## Spot The Difference Game: 
+# Spot The Difference Game: 
 
-A description of your game. Background info of the game is a nice touch.
+Test your observation skills and attention to detail with 'Spot The Difference'! Players have a 30-second time limit to find 3 differences for each round. 
 
-### You can find the game [HERE](https://jeejeebae.github.io/SpotTheDifference/).
+**You can find the game [HERE](https://jeejeebae.github.io/SpotTheDifference/).**
 
-## Screenshot(s): 
+# Screenshot(s): 
 
-![Screenshot of the empty state game before the start button is pressed](https://myoctocat.com/assets/images/base-octocat.svg)
+![Screenshot of the empty state game before the start button is pressed](/readmd_images/electrocat.png)
 
-## Technologies Used: 
+# Technologies Used: 
 
 JavaScript, HTM & CSS were used to create this game.
 
-## Getting Started: 
+# Getting Started: 
 
 In this section include any instructions you deem important.
 
-## Next Steps: 
+# Next Steps: 
 
 Planned future enhancements (icebox items).
