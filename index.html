@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="logo">
+    <div class="title">
       Spot the difference by clicking on the
       <b>right canvas:</b>
     </div>
@@ -16,43 +16,17 @@
       <button id="myButton">Start</button>
     </div>
 
-    <div class="findandtimer">
+    <div class="resultandtimer">
       <div id="timer">TIME GIVEN: 30 SECONDS</div>
       <div id="result">Find 3 spots</div>
-      <div id="ticker1" class="ticker-box"></div>
-      <div id="ticker2" class="ticker-box"></div>
-      <div id="ticker3" class="ticker-box"></div>
+      <div id="ticker1" class="ticker-box">1</div>
+      <div id="ticker2" class="ticker-box">2</div>
+      <div id="ticker3" class="ticker-box">3</div>
     </div>
 
     <div class="boards">
-      <div class="left-board">
-        <!-- <img
-          src="horse-left.png"
-          alt="scooter image on the left"
-          id="horse-left"
-        /> -->
-        <!-- <div><img src="boy-left.png" /></div>
-        <div><img src="horse-left.png" /></div>
-        <div><img src="girl-left.png" /></div>
-        <div><img src="climber-left.png" /></div>
-        <div><img src="camp-left.png" /></div> -->
-      </div>
-      <div class="right-board">
-        <!-- <div id="clickhere">
-          <b>Click on this board to submit your answer</b>
-        </div> -->
-        <!-- </div> -->
-        <!-- <img
-          src="horse-right.png"
-          alt="scooter image on the right"
-          id="horse-right"
-        /> -->
-        <!-- <div><img src="boy-right.png" /></div>
-        <div><img src="horse-right.png" /></div>
-        <div><img src="girl-right.png" /></div>
-        <div><img src="climber-right.png" /></div>
-        <div><img src="camp-right.png" /></div> -->
-      </div>
+      <div class="left-board"></div>
+      <div class="right-board"></div>
       <div class="right-grid">
         <div class="box">
           <div id="box1"></div>
@@ -355,10 +329,6 @@
           <div id="box100"></div>
         </div>
       </div>
-    </div>
-
-    <div class="score">
-      <div id="circles"></div>
     </div>
 
     <script src="script.js"></script>

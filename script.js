@@ -4,7 +4,7 @@ const imageSets = [
   {
     leftImageSrc: "climber-left.png",
     rightImageSrc: "climber-right.png",
-    correctBoxIds: ["box4", "box38", "box39", "box48", "box49", "box77"],
+    correctBoxIds: ["box4", "box39", "box77"],
   },
   {
     leftImageSrc: "horse-left.png",
@@ -19,12 +19,12 @@ const imageSets = [
   {
     leftImageSrc: "boy-left.png",
     rightImageSrc: "boy-right.png",
-    correctBoxIds: ["box36", "box42", "box43", "box88", "box89"],
+    correctBoxIds: ["box36", "box42", "box88"],
   },
   {
     leftImageSrc: "camp-left.png",
     rightImageSrc: "camp-right.png",
-    correctBoxIds: ["box37", "box47", "box83", "box80", "box90"],
+    correctBoxIds: ["box37", "box83", "box90"],
   },
   {
     leftImageSrc: "girl-left.png",
@@ -34,7 +34,7 @@ const imageSets = [
   {
     leftImageSrc: "scooter-left.png",
     rightImageSrc: "scooter-right.png",
-    correctBoxIds: ["box24", "box68", "box76", "box86"],
+    correctBoxIds: ["box24", "box68", "box76"],
   },
 ];
 
@@ -84,7 +84,6 @@ function resetGame() {
   const myButton = document.getElementById("myButton");
   timerDisplay.textContent = "";
   timerDisplay.style.color = "";
-  myButton.textContent = "Start";
 }
 
 function boxClick(event) {
@@ -130,8 +129,6 @@ function allBoxesFound() {
   const correctBoxes = document.querySelectorAll(".correct");
   // Define the number of correct boxes to be found
   const numCorrectBoxes = 3;
-  // Check if the number of found correct boxes matches the total number of correct boxes
-  //   return correctBoxes.length === numCorrectBoxes;
 
   const foundAllBoxes = correctBoxes.length === numCorrectBoxes;
 
@@ -139,7 +136,6 @@ function allBoxesFound() {
     const startButton = document.getElementById("myButton");
     startButton.disabled = false; // Re-enable the button
     startButton.style.backgroundColor = ""; // Reset button color
-    startButton.textContent = "Next"; // Change button text
   }
 
   return foundAllBoxes;
@@ -168,7 +164,6 @@ function timer() {
   //reset the game before starting:
   resetGame();
 
-  const resultDisplay = document.getElementById("result");
   const timerDisplay = document.getElementById("timer");
   const myButton = document.getElementById("myButton");
 

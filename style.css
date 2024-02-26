@@ -1,4 +1,4 @@
-.logo {
+.title {
   text-align: center;
   margin-top: 30px;
   font-size: 26px;
@@ -6,7 +6,7 @@
   color: #222222;
 }
 
-.findandtimer {
+.resultandtimer {
   display: flex;
   justify-content: center;
   position: relative;
@@ -32,6 +32,9 @@
   height: 25px;
   background-color: #d9d9d9;
   justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 20px;
 }
 
 #ticker2 {
@@ -39,6 +42,9 @@
   width: 25px;
   height: 25px;
   background-color: #d9d9d9;
+  text-align: center;
+  color: white;
+  font-size: 20px;
 }
 
 #ticker3 {
@@ -46,6 +52,9 @@
   width: 25px;
   height: 25px;
   background-color: #d9d9d9;
+  text-align: center;
+  color: white;
+  font-size: 20px;
 }
 
 #timer {
@@ -116,13 +125,11 @@ img {
   height: 500px;
   width: 500px;
   display: inline-block;
-  /* border: 0px solid #222222; */
   margin: 1% 20px 20px 600px;
   aspect-ratio: 1 / 1;
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  /* grid-template-rows: repeat(10, 1fr); */
 }
 
 .box {
